@@ -1,24 +1,73 @@
 {
-  "name": "tile-log",
+  "name": "boilerplate",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Cotton Han",
+    "email": "cotton.dev96@gmail.com",
+    "url": "https://github.com/cotton-han"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "prepare": "husky install",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test start http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "axios": "^0.27.2",
+    "dayjs": "^1.11.3",
     "next": "12.2.2",
+    "normalize.css": "^8.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "recoil": "^0.7.4",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@emotion/babel-plugin": "^11.9.2",
+    "@storybook/addon-a11y": "^6.5.9",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
+    "babel-loader": "^8.2.5",
+    "cypress": "^10.3.1",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.2",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-storybook": "^0.6.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "msw": "^0.44.2",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "4.7.4"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
