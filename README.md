@@ -12,3 +12,11 @@
 - E2E 테스트: Cypress
 - 날짜 관리: Day.js
 - 린팅 & 포맷팅: ESLint & Prettier
+
+## 추가 폴더
+
+- constants: 상수 폴더
+- hooks: 커스텀 훅 폴더
+- types: 타입 정의 폴더
+- utils: 유틸 함수 폴더
+- apis: API 관련 폴더
