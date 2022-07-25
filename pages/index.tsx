@@ -1,10 +1,13 @@
+import { NextPage } from 'next';
 import Image from 'next/image';
 
 import { Button } from 'components';
 
-function Home(props: { name: string }) {
-  const { name } = props;
+interface HomeProps {
+  name: string;
+}
 
+const Home: NextPage<HomeProps> = ({ name }) => {
   return (
     <>
       <span>{name}</span>
@@ -12,7 +15,7 @@ function Home(props: { name: string }) {
       <Button text="sdad" />
     </>
   );
-}
+};
 
 export async function getServerSideProps() {
   const res = await fetch('http://localhost:3000/api/hello');

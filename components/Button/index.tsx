@@ -4,9 +4,7 @@ interface ButtonProps {
   text: string;
 }
 
-function Button(props: ButtonProps) {
-  const { text } = props;
-
+function Button({ text }: ButtonProps) {
   return <S.Container>{text}</S.Container>;
 }
 

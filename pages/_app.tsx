@@ -1,13 +1,11 @@
 import { ThemeProvider } from '@emotion/react';
+import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
-import 'normalize.css';
 
 import { globalStyles } from 'styles/global';
 import theme from 'styles/theme';
 
-import type { AppProps } from 'next/app';
-
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <ThemeProvider theme={theme}>
@@ -18,4 +16,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default App;

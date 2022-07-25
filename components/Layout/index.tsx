@@ -1,15 +1,19 @@
 import Head from 'next/head';
+import { PropsWithChildren } from 'react';
 
 import * as S from './style';
 
-function Layout(props: { children: React.ReactNode; title: string }) {
-  const { children, title } = props;
+interface LayoutProps {
+  title: string;
+}
 
+function Layout({ children, title }: PropsWithChildren<LayoutProps>) {
   return (
     <S.Container>
       <Head>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Tile Log Description" />
+        <meta name="description" content={`TileLog ${title} Page`} />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -19,9 +23,9 @@ function Layout(props: { children: React.ReactNode; title: string }) {
         <meta name="og:title" content={title} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <S.Header></S.Header>
+      <S.Header>{/* Header 컴포넌트 추가 */}</S.Header>
       <S.Main>{children}</S.Main>
-      <S.Footer></S.Footer>
+      <S.Footer>{/* Footer 컴포넌트 추가 */}</S.Footer>
     </S.Container>
   );
 }
