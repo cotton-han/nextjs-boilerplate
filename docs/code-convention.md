@@ -154,6 +154,14 @@
 ## Props 타입 정의
 
 - Props 타입은 컴포넌트 파일 내에서 정의
+- `children`을 포함할 경우 `PropsWithChildren<[컴포넌트명]Props>` 활용
+  ```typescript
+  interface ComponentProps {
+    text: string;
+  }
+  
+  const Component = ({ text, children }: PropsWithChildren<ComponentProps>) => {};
+  ```
 - [컴포넌트명]Props
   ```typescript
   interface Component1Props {}
