@@ -2,9 +2,7 @@
 
 ## 네이밍
 
-- 폴더, 파일 이름은 `kebab-case` 사용
-  - pages 내의 파일명은 곧 url이 될 이름
-  - 다만, 컴포넌트 폴더 이름은 컴포넌트 네이밍 규칙에 따라 `PascalCase` 사용
+- 모든 폴더, 파일 이름은 `kebab-case` 사용
 - 컴포넌트 이름: `PascalCase`
 - 함수, 변수: `camelCase`
 - 상수: `SNAKE_CASE`
@@ -12,11 +10,12 @@
   - props prefix: `on~`
   - function depth prefix: `handle~` (반드시 lambda function로 사용해야하는 경우 제외)
 - styled-components
+
   ```jsx
-  /* 
+  /*
    * Layout에서 Container, Header, Main, Footer 모두 스타일링
    * pages에서는 Section 사용 내부는 컴포넌트들로 이루어짐
-   * components에서는 Container, Wrapper 2단계의 div와 태그이름을 활용한 스타일드 컴포넌트 활용 
+   * components에서는 Container, Wrapper 2단계의 div와 태그이름을 활용한 스타일드 컴포넌트 활용
    * div를 제외한 태그는 태그이름을 활용(태그의 속성을 빨리 알 수 있도록)
   **/
   // Layout의 예시
@@ -28,13 +27,13 @@
     <S.Main>{children}</S.Main>
     <S.Footer></S.Footer>
   </S.Container>
-  
+
   // pages의 예시
   <Layout>
     <S.ASection></S.ASection>
     <S.BSection></S.BSection>
   </Layout>
-  
+
   // components의 예시
   <S.Container>
     <S.TitleWrapper>
@@ -79,15 +78,16 @@
 - pages 하위 파일은 `NextPage`를 활용하여 선언
 
 ## 컴포넌트 디렉터리
- 
+
 - index.ts를 작성(pages에서 사용할 때 import를 줄이기 위해)
+
   ```javascript
   // components/index.ts
-  export { default as Component1 } from "./Component1";
-  export { default as Component2 } from "./Component2";
-  
+  export { default as Component1 } from './Component1';
+  export { default as Component2 } from './Component2';
+
   // pages/index.tsx
-  import { Component1, Component2 } from "components";
+  import { Component1, Component2 } from 'components';
   ```
 
 ## Import & Export
@@ -96,6 +96,7 @@
 
 - `eslint-plugin-import` 설치
 - `import/order` 규칙 사용
+
   ```json
   // .eslintrc.json
   ...
@@ -119,7 +120,7 @@
 
 ## ESLint & Prettier
 
-### ESLint 
+### ESLint
 
 - Prettier 충돌 방지 설정
 - Import 관련 규칙 추가
@@ -138,12 +139,20 @@
 
 ### IDE 설정
 
-- (선택) ESLint, Prettier가 저장 시에 동작하도록 설정 
+- (선택) ESLint, Prettier가 저장 시에 동작하도록 설정
   - 굳이 하지 않아도 husky 설정을 통해 커밋 시 자동으로 수행
 - (필수) Import 정렬이 저장 시에 동작하도록 설정
-  - ESLint에서 잡아주지 않는 사용하지 않는 최적화 수행(예: 사용하지 않는 Import 제거) 
+  - ESLint에서 잡아주지 않는 사용하지 않는 최적화 수행(예: 사용하지 않는 Import 제거)
 
-## Typing 작성 
+```json
+  // VSCode
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+```
+
+## Typing 작성
 
 - interface를 기본으로 사용
 - 최상단에 types 폴더를 생성해 공통으로 사용되는 타입 정의 (주로 로직과 관련된 타입)
@@ -155,15 +164,18 @@
 
 - Props 타입은 컴포넌트 파일 내에서 정의
 - `children`을 포함할 경우 `PropsWithChildren<[컴포넌트명]Props>` 활용
+
   ```typescript
   interface ComponentProps {
     text: string;
   }
-  
+
   const Component = ({ text, children }: PropsWithChildren<ComponentProps>) => {};
   ```
+
 - [컴포넌트명]Props
+
   ```typescript
   interface Component1Props {}
-  interface Component2Props {} 
+  interface Component2Props {}
   ```
