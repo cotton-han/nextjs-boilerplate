@@ -69,6 +69,8 @@
 |--- public (정적 파일)
 |--- types (공통 타입 정의)
 |--- utils (유틸 함수)
+|--- hooks (커스텀 훅 정의)
+|--- constants (상수 정의)
 |--- stories (Storybook)
 ```
 
@@ -152,7 +154,7 @@
   },
 ```
 
-## Typing 작성
+## TypeScript
 
 - interface를 기본으로 사용
 - 최상단에 types 폴더를 생성해 공통으로 사용되는 타입 정의 (주로 로직과 관련된 타입)
