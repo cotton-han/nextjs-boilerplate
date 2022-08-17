@@ -1,7 +1,8 @@
-import { NextPage } from 'next';
 import Image from 'next/image';
 
 import { Button } from 'components';
+
+import type { NextPage } from 'next';
 
 interface HomeProps {
   name: string;

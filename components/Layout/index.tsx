@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import { PropsWithChildren } from 'react';
 
 import * as S from './style';
+
+import type { PropsWithChildren } from 'react';
 
 interface LayoutProps {
   title: string;
@@ -13,7 +14,7 @@ function Layout({ children, title }: PropsWithChildren<LayoutProps>) {
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content={`TileLog ${title} Page`} />
+        <meta name="description" content={`${title} Page`} />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
