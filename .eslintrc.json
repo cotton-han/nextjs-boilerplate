@@ -11,7 +11,12 @@
       "jsx": true
     }
   },
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended", "plugin:import/recommended", "plugin:import/typescript"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
   "rules": {
     "import/order": [
       "error",
@@ -20,7 +25,8 @@
         "groups": [["builtin", "external"], "internal", ["parent", "sibling", "index"], "type"],
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
-    ]
+    ],
+    "no-var": "error"
   },
   "ignorePatterns": ["node_modules/", ".next/"]
 }
