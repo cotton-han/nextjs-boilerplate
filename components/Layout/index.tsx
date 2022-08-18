@@ -8,7 +8,7 @@ interface LayoutProps {
   title: string;
 }
 
-function Layout({ children, title }: PropsWithChildren<LayoutProps>) {
+const Layout = ({ children, title }: PropsWithChildren<LayoutProps>) => {
   return (
     <S.Container>
       <Head>
@@ -29,6 +29,6 @@ function Layout({ children, title }: PropsWithChildren<LayoutProps>) {
       <S.Footer>{/* Footer 컴포넌트 추가 */}</S.Footer>
     </S.Container>
   );
-}
+};
 
 export default Layout;

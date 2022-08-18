@@ -1,11 +1,13 @@
 import * as S from './style';
 
-interface ButtonProps {
+import type { ButtonHTMLAttributes } from 'react';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
 }
 
-function Button({ text }: ButtonProps) {
-  return <S.Container>{text}</S.Container>;
-}
+const Button = ({ text, onClick }: ButtonProps) => {
+  return <S.Container onClick={onClick}>{text}</S.Container>;
+};
 
 export default Button;
