@@ -30,7 +30,7 @@
 
 ## 서버 상태 관리: React Query
 
-- [공식 문서](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
+- [공식 문서](https://tanstack.com/query/v4)
 - Provider로 컴포넌트를 감싸는 작업 필요
 - Devtools 지원
 - Lagged Query Data
@@ -77,6 +77,11 @@
 - validation이나 에러, 이벤트 같은 필요한 기능들을 넣어서 form을 만들 수 있게 도와주는 라이브러리
 - 기본적으로 ref를 사용하는 uncontrolled 방식 -> 코드 깔끔
 - 불필요한 리렌더링 최소화
+
+## NextAuth
+
+- [공식 문서](https://next-auth.js.org/)
+- Next.js에서 authentication 구현을 도와주는 패키지
 
 ## E2E 테스트: Cypress OR Playwright 고민
 
