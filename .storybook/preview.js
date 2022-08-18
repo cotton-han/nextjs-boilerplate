@@ -1,6 +1,7 @@
-import * as NextImage from 'next/image';
-import { setupWorker, rest } from 'msw';
 import { ThemeProvider } from '@emotion/react';
+import { rest, setupWorker } from 'msw';
+import * as NextImage from 'next/image';
+import { RecoilRoot } from 'recoil';
 
 import { globalStyles } from '../styles/global';
 import theme from '../styles/theme';
@@ -34,9 +35,11 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={theme}>
-      {globalStyles}
-      <Story />
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        {globalStyles}
+        <Story />
+      </ThemeProvider>
+    </RecoilRoot>
   ),
 ];
