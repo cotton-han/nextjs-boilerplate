@@ -74,6 +74,10 @@
 |--- stories (Storybook)
 ```
 
+## 함수 선언
+
+- `Arrow Function` 사용
+
 ## 컴포넌트 선언
 
 - `Arrow Function` 사용
@@ -161,6 +165,7 @@
 - 타입에 i, I를 붙이지 않는 방식으로 사용
 - 컴포넌트에서 사용되는 경우 style.ts와 같이 types.ts를 만들어서 사용
   - 공통적으로 사용되는 경우가 생기면 types 하위로 분리
+- type, interface를 import할 때는 `import type` 명시
 
 ## Props 타입 정의
 
