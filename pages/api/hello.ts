@@ -1,20 +1,34 @@
-import { withHandler } from 'utils/server/withHandler';
+import { StatusCodes } from 'http-status-codes';
+
+import { ResponseBody } from 'types/api/response';
+import { withHandler } from 'utils/server/handler';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-interface ResponseDataType {
+interface GetResponseData {
   name: string;
 }
 
-// /api/hello
-const handler = async (req: NextApiRequest, res: NextApiResponse<ResponseDataType>) => {
-  if (req.method === 'GET') {
-    // 데이터베이스에서 데이터 가져오기
-    res.status(200).json({ name: 'John Doe' });
-  } else {
-    res.setHeader('Allow', ['GET']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
+const GET = async (req: NextApiRequest, res: NextApiResponse<ResponseBody<GetResponseData>>) => {
+  res.status(StatusCodes.OK).json({
+    code: '0000',
+    data: {
+      name: 'John Doe',
+    },
+  });
 };
 
-export default withHandler({ handler });
+interface PostResponseData {
+  name: string;
+}
+
+const POST = async (req: NextApiRequest, res: NextApiResponse<ResponseBody<PostResponseData>>) => {
+  res.status(StatusCodes.CREATED).json({
+    code: '0000',
+    data: {
+      name: 'John Doe',
+    },
+  });
+};
+
+export default withHandler({ GET, POST });
